@@ -1,0 +1,351 @@
+/* 
+
+*{
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+@media (max-width: 630px)
+{
+    .game, .scores {
+        margin-left: -225px;
+    }
+}
+@media (max-width: 800px)
+{
+    .game, .scores {
+        margin-left: -150px;
+    }
+}
+@media (max-width: 960px), (max-height: 800px)
+{
+    .game {
+        width: 450px;
+        height: 450px;
+        margin-left: -225px;
+        margin-top: -280px;
+    }
+}
+
+.game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    margin-left: -300px;
+    margin-top: -370px;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.board {
+    width: 100%;
+    height: 100%;
+}
+.square.left {
+    clear: both;
+    border-right-style: solid;
+}
+.square {
+    float: left;
+    width: 33.333333333%;
+    height: 33.333333333%;
+    border-width: 5px;
+    border-color: #fff;
+    -webkit-transition: background-color .1s;
+    -moz-transition: background-color .1s;
+    transition: background-color .1s;
+    will-change: background-color,border-color;
+    cursor: pointer;
+}
+.square.win>div {
+    -webkit-animation: blink .3s steps(1) 3;
+    -moz-animation: blink .3s steps(1) 3;
+    animation: blink .3s steps(1) 3;
+}
+
+.board .square>div {
+    -webkit-transition: opacity .1s;
+    -moz-transition: opacity .1s;
+    transition: opacity .1s;
+}
+.square .x, .square .o {
+    position: relative;
+    will-change: transform;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-animation: appear .2s cubic-bezier(0.5,1.8,0.1,1.1);
+    -moz-animation: appear .2s cubic-bezier(0.5,1.8,0.1,1.1);
+    animation: appear .2s cubic-bezier(0.5,1.8,0.1,1.1);
+}
+.x {
+    width: 100%;
+    height: 100%;
+}
+/* @media (max-width: 960px), (max-height: 800px)
+{
+    .square .x:before, .square .x:after {
+        left: 67.5px;
+        top: 16px;
+        width: 15px;
+        height: 118px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+}
+
+.x:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.x:before, .x:after {
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: #fff;
+    left: 90px;
+    top: 20px;
+    width: 20px;
+    height: 160px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+@media (max-width: 960px), (max-height: 800px)
+{
+    .square .x:before, .square .x:after {
+        left: 67.5px;
+        top: 16px;
+        width: 15px;
+        height: 118px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+}
+.x:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.x:before, .x:after {
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: #fff;
+    left: 90px;
+    top: 20px;
+    width: 20px;
+    height: 160px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} */
+/* .square.left {
+    clear: both;
+    border-right-style: solid;
+}
+.x, .square .o {
+    position: relative;
+    will-change: transform;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-animation: appear .2s cubic-bezier(0.5,1.8,0.1,1.1);
+    -moz-animation: appear .2s cubic-bezier(0.5,1.8,0.1,1.1);
+    animation: appear .2s cubic-bezier(0.5,1.8,0.1,1.1);
+} */
+/* 
+.o {
+    left: 16.666666667%;
+    top: 16.666666667%;
+    width: 66.666666667%;
+    height: 66.666666667%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 20px solid #fff;
+} */
+/* .square.right {
+    border-left-style: solid;
+}
+
+
+.square.left {
+    clear: both;
+    border-right-style: solid;
+}
+.square.bottom {
+    border-top-style: solid;
+}
+.square.bottom {
+    border-top-style: solid;
+}
+.square.right {
+    border-left-style: solid;
+}
+.restart {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+} */ 
+.box-col{
+     width: 100%;
+    margin-top: 10%;
+    width: 200px;
+    height: 20vh;
+background: #14BDAC;
+}
+.container-fluid{
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+.rowTic{
+width: 50%;
+height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.boxText{
+    color: white;
+}
+.hide
+{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  cursor: pointer;
+}
+     
+    .show{
+    display:block;
+    }
+    .bt-0{
+        width: 20%;
+    
+    }
+/* *{
+    background-color: black;
+} */
+.container{
+    margin-top: 15%;
+}
+.btn{
+    margin-top: 36%;
+}
+.box-col{
+border: 8px solid black;
+font-size: 8vw;
+display: flex;
+cursor: pointer;
+justify-content:center ;
+align-items: center;
+}
+/* 
+.box:hover{
+background-color: aqua;
+} */
+.br-0{
+border-right: 0;
+}
+.bl-0{
+    border-left: 0;
+}
+.bt-0{
+    border-top: 0;
+}
+.bb-0{
+    border-bottom: 0;
+}
+.tic_8{
+
+ border-bottom: 0;
+border-right: 0;
+}
+.tic_5{
+    border-right: 0;
+}
+.tic_2{
+    border-right: 0;
+}
+.tic_7{
+    border-bottom: 0;
+}
+.tic_6{
+    border-bottom: 0;
+}
+/* *{
+    background: #14BDAC;
+} */
+body{
+    margin: 0;
+width: 100%;
+padding: 0;
+background: #14BDAC;
+}
+.turn{
+    color: #545454;
+}
+/* .line
+{
+    background-color: black;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    transform: rotate(62deg);
+    transform: translateY(42px,20px);
+} */
+.name{
+    font-size: 25px;
+    /* margin-top: 10%; */
+    color: aliceblue;
+}
+@media screen and (max-width: 400px) {
+.rowTic{
+      display:50%
+     
+    }
+  }
+  /* .gameContainer{
+background: #14BDAC;
+display: flex;
+ justify-content: center;
+ margin-top: 50px;
+  }
+  .conatiner{
+display: grid;
+grid-template-rows: repeat(3,10vw);
+grid-template-columns: repeat(3,10vw);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .box{
+      border: 2px solid black;
+      font-size: 8vw;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .box:hover{
+      background-color: aliceblue;
+  } */

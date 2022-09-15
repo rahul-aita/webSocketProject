@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client 2</title>
+</head>
+<body>
+  <h1>real time message</h1>
+  <div id="messageArea" style="height:40px;overflow:scroll"></div>
+  <input type="text" id="messageBox" placeholder="write message here" style="display:block;width:100%;margin-bottom: 10px;padding: 10px;">
+    <button id="sendMessage"  onclick="sendMessage()" title="send message" style="width:100%;height: 30px;";>send message</button>
+</body>
+<script>
+
+const btn=document.querySelector('#sendMessage');
+const messageBox=document.querySelector('#messageBox');
+const messageArea=document.querySelector('#messageArea');
+
+// const websocket = new WebSocket('ws://localhost:3000');
+function showMesssage(event){
+    console.log(event)
+    messageArea.textContent+= `${event}`;
+    messageBox.value="";
+}
+
+
+function initial(){
+    // if(ws){
+    //     ws.error=ws.onopen=ws.onclose=null;
+    // }
+  
+    // ws.onopen = ()=>{
+    //     console.log("collection opend")
+    // }
+    if(websocket){
+        websocket.addEventListener('open', (event) => {
+      websocket.send('collection opend!');
+
+ });
+
+    }
+
+ websocket.addEventListener('message', function (event) {
+    console.log('Message from server ', event);
+        if (event.data instanceof Blob) {
+        reader = new FileReader();
+        reader.onload = () => {
+            console.log("Result: " + reader.result);
+        };
+        reader.readAsText(event.data);
+    } else {
+        console.log("Result: " + event.data);
+    }
+
+
+});
+
+    // ws.onmessage=({data}) => showMesssage(data);
+    // websocket.onclose=function(){
+    //         ws=null;
+    //     }
+    }
+    
+function sendMessage(){
+    websocket.send(messageBox.value)
+    console.log(messageBox.value)
+    showMesssage(messageBox.value)
+
+}
+initial();
+// // Connection opened
+// websocket.addEventListener('open', (event) => {
+//     // websocket.send('Hello Server!');
+// });
+
+// // Listen for messages
+
+// function sendMessage(){
+//     websocket.send("hello  from client 1!")
+// }
+</script>
+</html>

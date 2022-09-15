@@ -1,0 +1,8 @@
+1.tic toc board where 9 box
+6 horizontal and 6 vertical
+9 box will be clickble
+value will be render on ui cordinate wise.
+how to indentify two user in serverside  indiviually array with unique id.
+empty array in server serverside
+suppose click on 00 cordinate so ,this will go on sereve and compare the value and assign user 1 or user 2.
+how to send json in server serverside
